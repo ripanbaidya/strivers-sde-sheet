@@ -52,26 +52,34 @@ We can use a hash array to count the occurrences of each number in the array. Th
 class Solution {
     ArrayList<Integer> findTwoElement(int arr[]) {
         int n = arr.length;
-        int[] hash = new int[n + 1]; // Create a Hash array with size (n+1)
+
+        // Create a Hash array with size (n+1)
+        int[] hash = new int[n + 1]; 
         int missing = -1, repeating = -1;
 
-        ArrayList<Integer> res = new ArrayList<>(); // {repeat, missing}
+        // {repeat, missing}
+        ArrayList<Integer> res = new ArrayList<>(); 
 
         // Count occurrences of each number
         for (int i = 0; i < n; i++) {
-            hash[arr[i]]++; // Increment the count
+            // Increment the count
+            hash[arr[i]]++; 
         }
 
         // start with index 1, 0 is not in the range
         for (int i = 1; i < hash.length; i++) {
             if (hash[i] == 2) {
-                repeating = i; // Repeating number
+                // Repeating number
+                repeating = i; 
             }
             if (hash[i] == 0) {
-                missing = i; // Missing number
+                // Missing number
+                missing = i;
             }
 
-            if (missing != -1 && repeating != -1) break;
+            if (missing != -1 && repeating != -1) {
+                break;
+            }
         }
 
         // Add repeating and missing values to the resultant list
@@ -82,6 +90,7 @@ class Solution {
     }
 }
 ```
+
 ### Complexity Analysis
 - **Time Complexity**: `O(n)`  
 - **Space Complexity**: `O(n)`  
