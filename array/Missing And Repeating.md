@@ -101,11 +101,12 @@ class Solution {
 ### Intuition
 We can use mathematical equations to find the repeating and missing numbers:
 1. Let `x` be the repeating number and `y` be the missing number.
-2. Calculate the sum of the array (`s`) and the sum of squares of the array (`s2`).
-3. Use the formulas:
+2. Calculate the sum of the array (`S`) and the sum of squares of the array (`S2`).
+3. Calculate the sum of N (`SN`) and the sum of squares of N (`S2N`).
+4. Use the formulas:
    - `x - y = s - sn` (where `sn` is the sum of the first `n` natural numbers).
    - `x^2 - y^2 = s2 - s2n` (where `s2n` is the sum of squares of the first `n` natural numbers).
-4. Solve the equations to find `x` and `y`.
+5. Solve the equations to find `x` and `y`.
 
 ### Approach
 1. Calculate the sum of the array (`s`) and the sum of squares of the array (`s2`).
@@ -137,9 +138,9 @@ class Solution {
         long firstEqn = s - sn; // x - y
         
         /**
-         *  x^2 - y^2 = s2 - s2n
-        =>  (x - y)(x + y) = s2 - s2n
-        =>  (x+y) = s2-s2n/ (x-y)
+         * (x^2 - y^2) = (s2 - s2n)
+         * (x - y)(x + y) = (s2 - s2n)
+         * (x + y) = (s2 - s2n)/ (x-y)
          */
         long secondEqn = (s2 - s2n) / firstEqn; // x + y
 
